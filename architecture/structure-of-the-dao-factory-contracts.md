@@ -1,4 +1,4 @@
-# 🗂 Structure of the DAO Factory contracts
+# 🗂️ Structure of the DAO Factory contracts
 
 Four contracts form the **Main DAO Factory** system:
 

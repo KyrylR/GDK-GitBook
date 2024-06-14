@@ -2,7 +2,7 @@
 description: Here you will find basic information to dive deep into DAO Governance process.
 ---
 
-# 🏛 Governance
+# 🏛️ Governance
 
 When it comes to governing a DAO, the process can vary from one system to another.&#x20;
 

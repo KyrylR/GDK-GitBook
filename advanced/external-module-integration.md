@@ -2,7 +2,7 @@
 description: Here I will describe how to integrate external contracts into the DAO
 ---
 
-# ⚙ External module integration
+# ⚙️ External module integration
 
 After establishing base governance, a DAO may want to expand its ecosystem by integrating additional modules, such as a DAO Bridge, Uniswap, a Treasury, or any other components that demand DAO governance influence. The DAO system includes an External Module integration mechanism to facilitate this growth.
 

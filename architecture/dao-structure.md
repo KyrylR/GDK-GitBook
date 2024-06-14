@@ -4,9 +4,6 @@ The components below work together to create a decentralized governance system a
 
 The following contracts form the DAO:
 
-<figure><img src="../.gitbook/assets/DAO Structure new.drawio.png" alt=""><figcaption><p>DAO basic structure.</p></figcaption></figure>
-
-\
 **DAORegistry**: it is the contracts registry where all contracts (QRCs, Permission Manager proxy, Vault, etc.) related to the DAO are stored.
 
 **PermissionManager**: every time a contract or user interacts with a DAO, their credentials will be checked through the PermissionManager contract.
@@ -18,6 +15,15 @@ The following contracts form the DAO:
 The three contracts form the Expert Panel:
 
 **DAOParameterStorage:** all parameters related to the DAO are stored in this contract.
+
+There are two types of parameter storage for expert panels:&#x20;
+
+* Configuration Parameters Storage
+* Regular Parameters Storage&#x20;
+
+The configuration parameter storage stores all parameters related to the voting process (i.e. voting period, veto period, etc.).&#x20;
+
+The regular parameter storage contains all parameters related to the area of expertise of the experts
 
 **DAOMemberStorage**: the experts of the panel listed in this contract.
 

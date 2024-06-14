@@ -1,4 +1,4 @@
-# ⚔ Steps to deploy a DAO on Q
+# ⚔️ Steps to deploy a DAO on Q
 
 ## Abbreviations
 

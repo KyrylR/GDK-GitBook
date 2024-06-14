@@ -13,12 +13,12 @@ To directly navigate to the front end for creating a DAO, you could use the link
 The DAO Creation process consists of 8 steps, where you will configure the base parts of the system:&#x20;
 
 * Define the name and purpose of your DAO
-* Use existing tokens or create a new one for your DAO (could be either ERC20/Native token or ERC721 with an enumeration extension)&#x20;
+* Use existing tokens or create a new one for your DAO (could be either ERC20/Native token or ERC721 with an enumeration extension or Consensual Soulbound Token/[ERC5484](https://eips.ethereum.org/EIPS/eip-5484))&#x20;
 * Set up the necessary number of Expert Panels (maximum number is ten)&#x20;
 * Decide which votings required for the system, and configure veto groups for them
 
 In the end, you will need to confirm a few transactions: 2 are mandatory, where one is for main DAO contracts deployment and another for veto configuration. \
-Additional transactions could be for Token (ERC20 or ERC721) deployment and one transaction per Expert Panel.&#x20;
+Additional transactions could be for Token (ERC20/ERC721/ERC5484) deployment and one transaction per Expert Panel.&#x20;
 
 In the end, you will still have the DAO Creator role, you could revoke it with the SDK or leave it for future use. With it, you will be able to create an additional Exprt Panel up to the limit, which is 10 by default.&#x20;
 
@@ -44,14 +44,15 @@ Just remember, whatever you write for the DAO Purpose will be included in the co
 
 ### Second step
 
-Alright, let me break down the second step of creating a DAO for you. In this step, you'll decide how membership for the DAO will be determined. Here are the options you can choose from:
+Alright, let's break down the second step of creating a DAO for you. In this step, you'll decide how membership for the DAO will be determined. Here are the options you can choose from:
 
 1. All Q Token Holders (native token of the Q Blockchain)
 2. Use existing tokens (you'll need to provide the address of the token that will represent this DAO)
 3. Create a new ERC20 token
 4. Create a new ERC721 token
+5. Create a new [ERC5484](https://eips.ethereum.org/EIPS/eip-5484) token
 
-Keep in mind that only the holders of the selected token will be able to vote within the DAO. If you decide to create a new ERC20 or ERC721 token, you'll have to fill in some fields. Some common fields are:
+Keep in mind that only the holders of the selected token will be able to vote within the DAO. If you decide to create a new ERC20/ERC721/ERC5484 token, you'll have to fill in some fields. Some common fields are:
 
 * Name and Symbol: These are self-explanatory.
 * Total Supply Capacity: This is the maximum number of tokens that can be minted (an unchangeable parameter). For ERC20 tokens, this number will be multiplied by the `decimals` field.
@@ -60,7 +61,9 @@ Both types of tokens also have a Contract URI field, which is **optional** and c
 
 For ERC20 tokens, there's a unique field called 'decimals,' which is similar to 'wei' in Ethereum. For example, if `decimals` is set to 2, then 200 represents 2 tokens, and 1 is the smallest part. The default value is 18, just like Ethereum.
 
-For ERC721 tokens, there's a unique field called 'base URI,' which is the first part of the URI for all NFTs. For example, if you store all NFT metadata in IPFS, then "[https://ipfs.io/ipfs/](https://ipfs.io/ipfs/)" could be the base URI. When minting a token, you'd only need to enter the \<CID> of the NFT in the Token URI field. The baseURI field is **optional**.
+For ERC721/ERC5484 tokens, there's a unique field called 'base URI,' which is the first part of the URI for all NFTs. For example, if you store all NFT metadata in IPFS, then "[https://ipfs.io/ipfs/](https://ipfs.io/ipfs/)" could be the base URI. When minting a token, you'd only need to enter the \<CID> of the NFT in the Token URI field. The baseURI field is **optional**.
+
+The ERC5484 token is a Consensual Soulbound Token, with prohibited burning for the issuer and owner. It is non-transferable, and an account cannot have more than one token on its balance sheet.
 
 The most important thing to remember is that the token you choose or create will be the main token for the DAO. If users want to participate in DAO voting, they must deposit the token into the DAO Vault.
 

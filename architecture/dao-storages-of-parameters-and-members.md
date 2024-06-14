@@ -1,4 +1,4 @@
-# 🗃 DAO Storages of parameters and members
+# 🗃️ DAO Storages of parameters and members
 
 Managing the DAO parameters and members is done by the following contracts DAOParameterStorage and DAOMemberStorage
 

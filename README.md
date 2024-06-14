@@ -14,12 +14,12 @@ It is a place where you can play around, experiment with DAO, get basic knowledg
 
 ## Why GDK?
 
-The GDK will allow you to organize any **Governance** over the DAO as you want, distribute responsibilities among **Expert Panels** (there can be zero or as many as you wish), have voting in which ERC20 or ERC721 tokens are considered voting rights, and much more.
+The GDK will allow you to organize any **Governance** over the DAO as you want, distribute responsibilities among **Expert Panels** (there can be zero or as many as you wish), have voting in which ERC20, ERC721 or ERC5484 (SBT) tokens are considered voting rights, and much more.
 
 With this system, you will have options such as:
 
 * Set up governance with a Permission Manager.
-* Deploy your own ERC20 or/and ERC721 tokens.
+* Deploy your own ERC20, ERC721, ERC5484 tokens.
 * Deploy Expert Panels responsible for specific areas (DeFi, Bridge, Incentives, etc.).
 * Integrate your contracts in the DAO.
 * Manage your contracts through the DAO Registry and much more.

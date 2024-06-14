@@ -17,7 +17,7 @@ Your tool to participate in the Governance process
 #### Voting Power and Weight
 
 * In the case of ERC20 tokens, the number of locked tokens determines the user's voting power.
-* In the case of ERC721 tokens, even if a user locks several tokens, their voting power remains one.
+* In the case of ERC721/ERC5484 tokens, even if a user locks several tokens, their voting power remains one.
 
 #### Voting Types
 
@@ -35,7 +35,8 @@ The outcome of a proposal depends on the voting/veto quorum and majority, which 
 * In the basic configuration, voting is not anonymous. Everyone can see the votes and voting power of others (e.g., using a blockchain explorer).
 * Voting, veto, and execution periods vary between DAOs and can be found in the DAO Parameters tab.
 * Tokens are locked when users vote on proposals. Locked tokens counted toward the user's voting power.
-* ERC721-based DAO Tokens lock only one NFT, regardless of how many NFTs a user has deposited.
+* ERC721 token-based DAO locks only one NFT, regardless of how many NFTs the user has deposited.
+* ERC5484 token-based DAO cannot lock tokens, but users can neither burn them nor transfer
 
 #### Voting Status
 
@@ -52,6 +53,14 @@ Voting can have different statuses based on user activity and decisions:
 ### Voting Parameters
 
 The DAO Parameters tab in the governance system outlines essential parameters that determine the structure and execution of voting within a DAO.&#x20;
+
+{% hint style="info" %}
+In the case of Expert Panels, they are stored in the Configuration Parameters Storage.&#x20;
+
+In the case of DAO core parameters, they are also stored in the Configuration type Parameter Storage, but are combined with parameters not associated with any of the DAO processes (i.e. constitution.hash).&#x20;
+
+Because any change to any parameter stored as a core DAO parameter will require a change to the constitution hash, so to ensure atomic consistency (changing the configuration and regular parameters in one transaction) they are stored in the same Parameter Storage.
+{% endhint %}
 
 The following format denotes these parameters: `<voting situation name>.<parameter>`.&#x20;
 
@@ -70,6 +79,7 @@ The following is a comprehensive explanation of each parameter:
 7. `votingType`: Represents an integer that denotes the type of voting (0 - Non-restricted voting, 1 - Restricted voting, 2 - Partially restricted voting). In this example, it is set to 0.
 8. `votingTarget`: A string that specifies the target contract to be called if the proposal passes. In this example, it is set to ${GENERAL\_VOTING\_NAME}:${DAO\_RESERVED\_NAME} (this string represents the deployed GeneralDAOVoting.sol contract).
 9. `votingMinAmount`: Indicates the minimum number of tokens a user needs to deposit to create a proposal. In this example, it is set to 10.
+   * Be careful if the DAO is based on ERC721 or ERC5484 tokens. This parameter should always be 1 or 0. Otherwise, the DAO will not work properly.
 
 These values can be customized to establish various voting situations within the DAO, enabling flexibility and adaptability as the organization evolves.
 
@@ -83,5 +93,5 @@ Following the colon delimiter, the second part of the parameter indicates the co
 
 Combining both parts of the voting target parameter creates a unique identifier for a contract within the DAO Registry. For instance:
 
-* `DAO_PARAMETER_STORAGE:DAO Token Holder` - represents the constitution parameter storage.
+* `DAO_CONF_PARAMETER_STORAGE:DAO Token Holder` - represents the constitution parameter storage.
 * `DAO_MEMBER_STORAGE:Bridge Experts` - represents the member storage for Bridge Experts.

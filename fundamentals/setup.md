@@ -2,7 +2,7 @@
 description: Minimum information you need to dive deep into DAO creation and management.
 ---
 
-# 🛠 Setup
+# 🛠️ Setup
 
 ## DAO Tools
 

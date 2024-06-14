@@ -2,7 +2,7 @@
 description: This page describes how the DAO guard mechanism works.
 ---
 
-# 🛡 Veto process
+# 🛡️ Veto process
 
 The veto process plays a vital role in DAO governance, as it serves as a last resort to stop a proposal that may not align with the DAO's constitution. Vetoes are available exclusively to Guardians and External Guardians, as determined during the DAO setup.
 
@@ -22,7 +22,6 @@ For example, the `GeneralDAOVoting.sol` the contract is represented by a Veto Gr
 struct VetoGroup {
     string name;
     address target;
-    EnumerableSet.AddressSet members;
     DAOMemberStorage linkedMemberStorage;
 }
 ```
@@ -31,10 +30,9 @@ The Veto Group parameters are as follows:
 
 * `name`: The name assigned to the veto group.
 * `target`: The most important parameter in the structure, representing the contract on which users can create proposals (e.g., `GeneralDAOVoting.sol`).
-* `members`: A list of users that can veto proposals targeting the same contract specified by the `General Update Vote.votingTarget` parameter. This field is added for customization and primarily uses the `linkedMemberStorage`.
 * `linkedMemberStorage`: The address of the `DAOMemberStorag.sol` contract, representing members from a specific Expert Panel who also have veto power, along with users from the `members` list.
 
-Eligible users who have veto power should be in the `members` list or the Member Storage of some Expert Panel. These users can veto proposals of a specific voting target, which should always be a contract that implements the `IDAOResource` interface.
+Eligible users who have veto power should be in the Member Storage of some Expert Panel. These users can veto proposals of a specific voting target, which should always be a contract that implements the `IDAOResource` interface.
 
 The duration within which a decision can be vetoed is customizable from DAO to DAO, as determined by the `vetoPeriod` parameter that can be found in the DAO Parameters tab.
 
